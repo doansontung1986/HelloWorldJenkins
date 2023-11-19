@@ -3,17 +3,23 @@ pipeline {
     stages {
         stage('Cleaning Stage') {
             steps {
-                sh "mvn clean"
+                dir("HelloWorldJenkins") {
+                    sh "mvn clean"
+                }
             }
         }
         stage('Testing Stage') {
             steps {
-                sh "mvn test"
+                dir("HelloWorldJenkins") {
+                    sh "mvn test"
+                }                                
             }
         }
         stage('Packaging Stage') {
             steps {
-                sh "mvn package"
+                dir("HelloWorldJenkins") {
+                    sh "mvn package"
+                }                                    
             }
         }
     }
